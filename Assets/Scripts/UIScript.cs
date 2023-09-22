@@ -13,7 +13,7 @@ public class UIScript : MonoBehaviour
     public static UIScript Instance; 
     public int score = 0;
     public float timer;
-    public bool bGameIsRunning = true;
+    public bool bGameOver = false;
 
     private void Start() 
     {
@@ -25,11 +25,11 @@ public class UIScript : MonoBehaviour
     
     private void Update() 
     {
-        if (bGameIsRunning) {
+        if (!bGameOver) {
             timer += Time.deltaTime;
+            ScoreText.text = "Score: " + score.ToString() + " Points";
+            TimeSpan ts = TimeSpan.FromSeconds(timer);
+            TimeText.text = "Time: " + ts.ToString("hh\\:mm\\:ss");
         }
-        ScoreText.text = "Score: " + score.ToString() + " Points";
-        TimeSpan ts = TimeSpan.FromSeconds(timer);
-        TimeText.text = "Time: " + ts.ToString("hh\\:mm\\:ss");
     }
 }

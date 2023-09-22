@@ -18,7 +18,7 @@ public class BallScript : MonoBehaviour
         }
         else if  (other.gameObject.CompareTag("BottomWallTag")) 
         {
-            UIScript.Instance.bGameIsRunning = false;
+            UIScript.Instance.bGameOver = true;
         }
     }
 }
